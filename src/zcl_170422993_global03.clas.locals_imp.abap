@@ -10,8 +10,8 @@ CLASS lcl_connection DEFINITION.
             IMPORTING
                 i_carrier_id TYPE /dmo/carrier_id
                 i_connection_id TYPE /dmo/connection_id
-                status TYPE i
-                flight_date TYPE d
+                i_status TYPE i
+                i_flight_date TYPE d
             RAISING
                 cx_ABAP_INVALID_VALUE.
 
@@ -24,8 +24,8 @@ CLASS lcl_connection DEFINITION.
             EXPORTING
                 e_carrier_id TYPE /dmo/carrier_id
                 e_connection_id TYPE /dmo/connection_id
-                status TYPE i
-                flight_date TYPE d.
+                e_status TYPE i
+                e_flight_date TYPE d.
 
 
 
@@ -47,12 +47,14 @@ CLASS lcl_connection IMPLEMENTATION.
 
   METHOD constructor.
     IF i_carrier_id IS INITIAL OR i_connection_id IS INITIAL
-    OR status IS INITIAL OR flight_date IS INITIAL.
+    OR i_status IS INITIAL OR i_flight_date IS INITIAL.
         RAISE EXCEPTION TYPE cx_abap_invalid_value.
     ENDIF.
 
     me->carrier_id = i_carrier_id.
     me->connection_id = i_connection_id.
+    me->status = i_status.
+    me->flight_date = i_flight_date.
 
     conn_counter = conn_counter + 1.
 
@@ -62,8 +64,8 @@ CLASS lcl_connection IMPLEMENTATION.
 
     e_carrier_id = carrier_id.
     e_connection_id = connection_id.
-    status = status.
-    flight_date = flight_date.
+    e_status = status.
+    e_flight_date = flight_date.
 
 
   ENDMETHOD.
