@@ -49,14 +49,14 @@ CLASS zcl_170422993_rest_client_02 IMPLEMENTATION.
 
 
   METHOD run_demo.
-    io_out->write( 'user create' ).
-    io_out->write( user_create( ) ).
+*    io_out->write( 'user create' ).
+*    io_out->write( user_create( ) ).
 
 *    io_out->write( 'get user' ).
 *    io_out->write( user_get(  ) ).
 
-*   io_out->write( 'update user' ).
-*   io_out->write( user_update(  ) ).
+   io_out->write( 'update user' ).
+   io_out->write( user_update(  ) ).
 
 *    io_out->write( 'delete user' ).
 *    io_out->write( user_delete(  ) ).
@@ -148,7 +148,7 @@ CLASS zcl_170422993_rest_client_02 IMPLEMENTATION.
     '"lastName": "demo",' &&
     '"email": "itsmehelya@gmail.com",' &&
     '"password": "demoDemo",' &&
-    '"phone": "123456789",' &&
+    '"phone": "987654321",' &&
     '"userStatus": 1' &&
   '}'.
   ENDMETHOD.
